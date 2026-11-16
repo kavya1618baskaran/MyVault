@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyVault | Personal Document Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">▣</div>
+            <div>
+                <h2>MyVault</h2>
+                <small>PERSONAL DOCUMENTS</small>
+            </div>
+        </div>
+
+        <div class="profile">
+            <div class="avatar">M</div>
+            <div>
+                <strong>My Account</strong>
+                <small>Personal workspace</small>
+            </div>
+        </div>
+
+        <p class="menu-heading">WORKSPACE</p>
+
+        <nav>
+            <button class="nav-link active" data-page="dashboard">
+                ◫ <span>Dashboard</span>
+            </button>
+
+            <button class="nav-link" data-page="documents">
+                ▤ <span>My Documents</span>
+            </button>
+
+            <button class="nav-link" data-page="categories">
+                ▦ <span>Categories</span>
+            </button>
+
+            <button class="nav-link" data-page="favorites">
+                ☆ <span>Favourites</span>
+            </button>
+
+            <button class="nav-link" data-page="shared">
+                ⇄ <span>Shared Documents</span>
+            </button>
+
+            <button class="nav-link" data-page="reminders">
+                ◷ <span>Expiry Reminders</span>
+            </button>
+        </nav>
+
+        <p class="menu-heading">PREFERENCES</p>
+
+        <nav>
+            <button class="nav-link" id="themeButton">
+                ☾ <span>Dark Mode</span>
+            </button>
+
+            <button class="nav-link" id="backupButton">
+                ⇧ <span>Backup Documents</span>
+            </button>
+
+            <button class="nav-link" id="restoreButton">
+                ⇩ <span>Restore Backup</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="storage-box">
+                <strong>My Digital Vault</strong>
+                <p>Keep your important files organized.</p>
+                <div class="storage-line">
+                    <span></span>
+                </div>
+                <small>Local prototype storage</small>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <header class="topbar">
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+
+            <div class="breadcrumb">
+                MyVault / <span id="pageTitle">Dashboard</span>
+            </div>
+
+            <div class="top-actions">
+                <button class="icon-button" id="topThemeButton"
+                    title="Toggle dark mode">☾</button>
+
+                <div class="top-avatar">M</div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD PAGE -->
+        <section class="page active" id="dashboard">
+
+            <div class="welcome">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL SPACE</p>
+                    <h1>Welcome to your vault 👋</h1>
+                    <p>Everything important, safely organized in one place.</p>
+                </div>
+
+                <button class="primary-button" id="mainUpload">
+                    + Upload Document
+                </button>
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">▤</div>
+                    <p>Total Documents</p>
+                    <h2 id="totalCount">0</h2>
+                    <small>Documents in your vault</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">▦</div>
+                    <p>Categories</p>
+                    <h2 id="categoryCount">0</h2>
+                    <small>Document types</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">◷</div>
+                    <p>Expiring Soon</p>
+                    <h2 id="expiringCount">0</h2>
+                    <small>Within 30 days</small>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">☆</div>
+                    <p>Favourites</p>
+                    <h2 id="favoriteCount">0</h2>
+                    <small>Important documents</small>
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="search-row">
+
+                <div class="search-box">
+                    <span>⌕</span>
+                    <input type="search" id="searchInput"
+                        placeholder="Search documents...">
+                </div>
+
+                <select id="filterCategory">
+                    <option value="all">All Categories</option>
+                    <option>Aadhaar</option>
+                    <option>PAN Card</option>
+                    <option>Education</option>
+                    <option>Banking</option>
+                    <option>Personal</option>
+                    <option>Insurance</option>
+                    <option>Driving Licence</option>
+                    <option>Other</option>
+                </select>
+
+            </div>
+
+
+            <!-- QUICK CATEGORIES -->
+            <div class="section-heading">
+                <div>
+                    <h2>Categories</h2>
+                    <p>Browse documents by type.</p>
+                </div>
+                <button class="text-button" data-go="categories">
+                    View all →
+                </button>
+            </div>
+
+            <div class="category-grid">
+
+                <button class="category-card" data-category="Aadhaar">
+                    <span>🪪</span>
+                    <strong>Aadhaar</strong>
+                </button>
+
+                <button class="category-card" data-category="PAN Card">
+                    <span>💳</span>
+                    <strong>PAN Card</strong>
+                </button>
+
+                <button class="category-card" data-category="Education">
+                    <span>🎓</span>
+                    <strong>Education</strong>
+                </button>
+
+                <button class="category-card" data-category="Banking">
+                    <span>🏦</span>
+                    <strong>Banking</strong>
+                </button>
+
+                <button class="category-card" data-category="Personal">
+                    <span>📁</span>
+                    <strong>Personal</strong>
+                </button>
+
+                <button class="category-card" data-category="Insurance">
+                    <span>🛡️</span>
+                    <strong>Insurance</strong>
+                </button>
+
+            </div>
+
+
+            <!-- RECENT DOCUMENTS -->
+            <div class="section-heading">
+                <div>
+                    <h2>Recent Documents</h2>
+                    <p>Your latest uploaded files.</p>
+                </div>
+
+                <button class="text-button" data-go="documents">
+                    View all →
+                </button>
+            </div>
+
+            <div class="document-grid" id="recentDocuments"></div>
+
+        </section>
+
+
+        <!-- DOCUMENTS PAGE -->
+        <section class="page" id="documents">
+
+            <div class="page-heading">
+                <div>
+                    <h1>My Documents</h1>
+                    <p>Manage all your important documents.</p>
+                </div>
+
+                <button class="primary-button" id="documentUpload">
+                    + Upload
+                </button>
+            </div>
+
+            <div class="search-box page-search">
+                <span>⌕</span>
+                <input type="search" id="documentSearch"
+                    placeholder="Search by document name...">
+            </div>
+
+            <div class="document-grid" id="allDocuments"></div>
+
+        </section>
+
+
+        <!-- CATEGORIES PAGE -->
+        <section class="page" id="categories">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Categories</h1>
+                    <p>Keep your documents organized.</p>
+                </div>
+            </div>
+
+            <div class="category-grid large-categories">
+
+                <button class="category-card" data-category="Aadhaar">
+                    <span>🪪</span><strong>Aadhaar</strong>
+                </button>
+
+                <button class="category-card" data-category="PAN Card">
+                    <span>💳</span><strong>PAN Card</strong>
+                </button>
+
+                <button class="category-card" data-category="Education">
+                    <span>🎓</span><strong>Education</strong>
+                </button>
+
+                <button class="category-card" data-category="Banking">
+                    <span>🏦</span><strong>Banking</strong>
+                </button>
+
+                <button class="category-card" data-category="Personal">
+                    <span>📁</span><strong>Personal</strong>
+                </button>
+
+                <button class="category-card" data-category="Insurance">
+                    <span>🛡️</span><strong>Insurance</strong>
+                </button>
+
+                <button class="category-card" data-category="Driving Licence">
+                    <span>🚘</span><strong>Driving Licence</strong>
+                </button>
+
+                <button class="category-card" data-category="Other">
+                    <span>📄</span><strong>Other</strong>
+                </button>
+
+            </div>
+
+            <div id="categoryDocuments"></div>
+
+        </section>
+
+
+        <!-- FAVOURITES PAGE -->
+        <section class="page" id="favorites">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Favourites ☆</h1>
+                    <p>Your most important documents.</p>
+                </div>
+            </div>
+
+            <div class="document-grid" id="favoriteDocuments"></div>
+
+        </section>
+
+
+        <!-- SHARED PAGE -->
+        <section class="page" id="shared">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Shared Documents</h1>
+                    <p>Documents you have marked for family sharing.</p>
+                </div>
+            </div>
+
+            <div class="notice">
+                <strong>Family sharing preview</strong>
+                <p>This prototype lets you prepare documents for sharing.
+                Actual private sharing between family accounts will be
+                connected when we build the online backend.</p>
+            </div>
+
+            <div class="document-grid" id="sharedDocuments"></div>
+
+        </section>
+
+
+        <!-- REMINDERS PAGE -->
+        <section class="page" id="reminders">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Expiry Reminders</h1>
+                    <p>Keep track of important expiry dates.</p>
+                </div>
+            </div>
+
+            <div class="notice">
+                <strong>Expiry tracker</strong>
+                <p>Documents expiring within 30 days and expired
+                documents will appear here.</p>
+            </div>
+
+            <div class="document-grid" id="reminderDocuments"></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- UPLOAD MODAL -->
+<div class="modal" id="uploadModal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <div>
+                <h2>Upload Document</h2>
+                <p>Add a new file to your vault.</p>
+            </div>
+            <button class="close-button" id="closeUpload">×</button>
+        </div>
+
+        <form id="uploadForm">
+
+            <label>Document Name</label>
+            <input type="text" id="docName"
+                placeholder="Example: My Degree Certificate" required>
+
+            <label>Category</label>
+            <select id="docCategory" required>
+                <option value="">Choose category</option>
+                <option>Aadhaar</option>
+                <option>PAN Card</option>
+                <option>Education</option>
+                <option>Banking</option>
+                <option>Personal</option>
+                <option>Insurance</option>
+                <option>Driving Licence</option>
+                <option>Other</option>
+            </select>
+
+            <label>Upload File</label>
+            <input type="file" id="docFile"
+                accept=".pdf,.png,.jpg,.jpeg,.webp" required>
+
+            <label>Expiry Date (Optional)</label>
+            <input type="date" id="docExpiry">
+
+            <label>Description (Optional)</label>
+            <textarea id="docDescription"
+                placeholder="Add a short description..."></textarea>
+
+            <button class="primary-button full-button" type="submit">
+                Save Document
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- PREVIEW MODAL -->
+<div class="modal" id="previewModal">
+
+    <div class="modal-content preview-content">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="previewTitle">Document Preview</h2>
+                <p id="previewInfo"></p>
+            </div>
+
+            <button class="close-button" id="closePreview">×</button>
+        </div>
+
+        <div id="previewArea" class="preview-area"></div>
+
+        <div class="preview-actions">
+            <button class="primary-button" id="downloadPreview">
+                Download
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+<input type="file" id="restoreInput" accept=".json"
+    hidden>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
